@@ -1,0 +1,25 @@
+{
+  "name": "bongo-cat-reskin",
+  "version": "1.0.0",
+  "description": "<p align=\"center\">\r   <img src=\"https://bongo.cat/meta/thumbnail.png\">\r </p>\r Hit the bongos like Bongo Cat! https://bongo.cat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Externalizable/bongo.cat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Externalizable/bongo.cat/issues"
+  },
+  "homepage": "https://github.com/Externalizable/bongo.cat#readme",
+  "dependencies": {
+    "dotenv": "^6.2.0",
+    "koa": "^2.6.2",
+    "koa-static": "^5.0.0"
+  }
+}
