@@ -104,28 +104,28 @@ a {
     transform: translate(-50%, -50%);
 }
 #bongo {
-    background-image: url('../images/bongo.png');
+    background-image: url('../images/bongo/bongo.png');
 }
 #keyboard {
-    background-image: url('../images/keyboard.png');
+    background-image: url('../images/bongo/keyboard.png');
     visibility: hidden;
 }
 #cymbal {
-    background-image: url('../images/cymbal.png');
+    background-image: url('../images/bongo/cymbal.png');
     visibility: hidden;
 }
 #marimba {
-    background-image: url('../images/marimba.png');
+    background-image: url('../images/bongo/marimba.png');
     visibility: hidden;
 }
 #mouth {
-    background-image: url('../images/m1.png');
+    background-image: url('../images/bongo/m1.png');
 }
 #lpaw {
-    background-image: url('../images/l1.png');
+    background-image: url('../images/bongo/l1.png');
 }
 #rpaw {
-    background-image: url('../images/r1.png');
+    background-image: url('../images/bongo/r1.png');
 }
 footer {
     position: absolute;

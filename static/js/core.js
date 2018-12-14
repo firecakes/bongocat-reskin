@@ -1,3 +1,6 @@
+var IMAGE_DIRECTORY = "images/bongo/"
+var IMAGE_DIRECTORY_M = "images/bongo/m"
+
 var InstrumentEnum = {
     BONGO : 0,
     KEYBOARD : 1,
@@ -91,6 +94,7 @@ $(document).ready(function() {
     lowLag.load(['marimba8.mp3','marimba8.wav'],'marimba8');
     lowLag.load(['marimba9.mp3','marimba9.wav'],'marimba9');
     lowLag.load(['marimba0.mp3','marimba0.wav'],'marimba0');
+    lowLag.load(['meow-dinny.ogg'],'meow-2');
 });
 Array.prototype.remove = function(el) {
     return this.splice(this.indexOf(el), 1);
@@ -123,14 +127,35 @@ $.play = function(instrument, key, state) {
         pressed.remove(commonKey);
     }
     if (instrument == InstrumentEnum.MEOW) {
-        $('#mouth').css("background-image", "url('images/m" + (state === true ? "2" : "1") + ".png')");
+        $('#mouth').css("background-image", "url('" + IMAGE_DIRECTORY_M + (state === true ? "2" : "1") + ".png')");
     } else {
-        $(id).css("background-image", "url('images/" + (paw == 0 ? "l" : "r") + (state === true ? "2" : "1") + ".png')");
+        $.changeBackgrounds();
+        $(id).css("background-image", "url('" + IMAGE_DIRECTORY + (paw == 0 ? "l" : "r") + (state === true ? "2" : "1") + ".png')");
     }
 }
 $.sound = function(filename) {
     lowLag.play(filename);
 }
+$.changeBackgrounds = function () {
+    const urlPrefix = IMAGE_DIRECTORY;
+    $('#bongo').css("background-image", "url('../" + urlPrefix + "bongo.png')");
+    $('#keyboard').css("background-image", "url('../" + urlPrefix + "keyboard.png')");
+    $('#cymbal').css("background-image", "url('../" + urlPrefix + "cymbal.png')");
+    $('#marimba').css("background-image", "url('../" + urlPrefix + "marimba.png')");
+    $('#keyboard').css("background-image", "url('../" + urlPrefix + "keyboard.png')");
+    $('#mouth').css("background-image", "url('../" + urlPrefix + "m1.png')");
+    $('#lpaw').css("background-image", "url('../" + urlPrefix + "l1.png')");
+    $('#rpaw').css("background-image", "url('../" + urlPrefix + "r1.png')");
+}
+function changeSkin (name) {
+    IMAGE_DIRECTORY = `images/${name}/`;
+    IMAGE_DIRECTORY_M = `images/${name}/m`;
+    if (name === "bongo") KeyEnum[" "] = -1;
+    if (name === "dinny") KeyEnum[" "] = -2;
+    if (name === "deadly") KeyEnum[" "] = -3;
+    $.changeBackgrounds();
+}
+
 $(document).bind("contextmenu", function (e) {
     e.preventDefault();
 });
@@ -202,4 +227,15 @@ $(document).on("keydown keyup", function (e) {
     if (instrument != undefined && key != undefined) {
         $.play(instrument, key, e.type === "keydown");
     }
+    //changing skins
+    else if (e.key === "b") {
+        changeSkin("bongo");
+    }
+    else if (e.key === "n") {
+        changeSkin("dinny");
+    }
+    else if (e.key === "m") {
+        changeSkin("deadly");
+    }
+
 });
